@@ -21,7 +21,8 @@ class GameViewModel: ObservableObject {
     var statistics = GameStatistics()
 
     init() {
-        self.ai = GomokuAI(difficulty: aiDifficulty, aiPiece: playerPiece.opposite)
+        // 使用默认值初始化 AI，避免在所有属性初始化前访问 self
+        self.ai = GomokuAI(difficulty: .medium, aiPiece: .white)
     }
 
     // 开始新游戏
